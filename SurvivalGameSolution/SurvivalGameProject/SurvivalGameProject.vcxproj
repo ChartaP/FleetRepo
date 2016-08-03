@@ -146,11 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneClass.cpp" />
     <ClCompile Include="SceneMng.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneMng.h" />
