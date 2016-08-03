@@ -2,8 +2,7 @@
 class SceneClass
 {
 public:
-	SceneClass *PrevScene;
-	TCHAR name[8];
+	CHAR name[8];
 
 	virtual VOID FadeIn() = 0;
 	virtual VOID FadeOut() = 0;
