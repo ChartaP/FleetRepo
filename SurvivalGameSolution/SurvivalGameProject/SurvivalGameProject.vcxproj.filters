@@ -19,6 +19,30 @@
     <Filter Include="헤더 파일\Scene">
       <UniqueIdentifier>{4b338256-0044-4e23-8cf5-a15e63712421}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Object">
+      <UniqueIdentifier>{8e15ebe6-7ec8-46bf-bb05-81edb9fb03c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object">
+      <UniqueIdentifier>{3c338451-6f4c-4f23-aaf7-b31cf61e123f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Ship">
+      <UniqueIdentifier>{58c02182-45a6-4ebb-8340-5e382b86f650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Weapon">
+      <UniqueIdentifier>{1baaefeb-2874-47bf-aa7f-4e3ca3fb2b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object\Ship">
+      <UniqueIdentifier>{ec307d3a-45b4-4dde-8442-8f4637fb851b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object\Weapon">
+      <UniqueIdentifier>{562b9c00-245a-468c-a31a-1e97921d4e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI">
+      <UniqueIdentifier>{cf22ca5b-fd40-484b-a1be-936570b10e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UI">
+      <UniqueIdentifier>{20793f18-5799-48bd-a541-24d2f4d0f222}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
