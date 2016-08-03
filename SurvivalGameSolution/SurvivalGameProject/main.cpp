@@ -3,7 +3,8 @@
 VOID CALLBACK TimerProc(HWND, UINT, UINT_PTR, DWORD);
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-HBITMAP* LoadBitmap();
+HBITMAP* LoadBitmap(TCHAR*);
+
 VOID DrawBitmap(HDC, INT, INT, HBITMAP);
 
 HINSTANCE g_hInst;
@@ -40,9 +41,9 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	return (INT)Message.wParam;
 }
 
-HBITMAP* LoadBitmap()
+HBITMAP* LoadBitmap(TCHAR* FILE_NAME)
 {
-	static HBITMAP bmp = (HBITMAP)LoadImage(NULL, TEXT("char.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+	static HBITMAP bmp = (HBITMAP)LoadImage(NULL, FILE_NAME , IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 	HBITMAP *hBMP = &bmp;
 	return hBMP;
 }
@@ -84,7 +85,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	static HBITMAP backBitmap = NULL;//도화지 비트맵
 	HBITMAP hOldBitmap;//임시 비트맵
 	PAINTSTRUCT ps;
-	static HBITMAP* MyBitmap; //비트맵 모아둔 비트맵
+	static HBITMAP* MyBitmapChar; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP* MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP* MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
 
 
 	switch (iMessage)
