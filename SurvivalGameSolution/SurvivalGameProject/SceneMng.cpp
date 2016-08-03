@@ -1,14 +1,14 @@
 #include "main.h"
 
-VOID SceneMng::ChangeScene(CHAR*name)
+VOID SceneMng::ChangeScene(TCHAR*name)
 {
-	if (strcmp(name, "GameScene") == 0)
+	if (_tcscmp(name, TEXT("GameScene")) == 0)
 	{
 		curScene = gameScene;
 	}
 }
 
-CHAR* SceneMng::GetCurrentScene() 
+TCHAR* SceneMng::GetCurrentScene() 
 {
 	return curScene->name;
 }

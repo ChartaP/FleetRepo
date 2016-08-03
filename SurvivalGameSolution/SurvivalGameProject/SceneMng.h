@@ -11,8 +11,8 @@ private :
 
 public:
 
-	VOID ChangeScene(CHAR*);
-	CHAR* GetCurrentScene();
+	VOID ChangeScene(TCHAR*);
+	TCHAR* GetCurrentScene();
 
 	VOID Update();
 

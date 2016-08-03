@@ -96,9 +96,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	switch (iMessage)
 	{
 	case WM_CREATE:
-		//GetClientRect(hWnd, &crt);
+		GetClientRect(hWnd, &crt);
 
-		//mySceneMng.ChangeScene("GameScene");
+		mySceneMng.ChangeScene(TEXT("GameScene"));
 
 		return 0;
 	case WM_PAINT:
@@ -117,6 +117,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		//그리는 곳 끝
 
 		BitBlt(hdc, 0, 0, crt.right, crt.bottom, backMemDC, 0, 0, SRCCOPY);
+		TextOut(hdc, 8,8,mySceneMng.GetCurrentScene(),15);
 
 		DeleteObject(SelectObject(backMemDC, hOldBitmap));
 		DeleteDC(backMemDC);
