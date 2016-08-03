@@ -94,9 +94,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	switch (iMessage)
 	{
 	case WM_CREATE:
-		GetClientRect(hWnd, &crt);
+		//GetClientRect(hWnd, &crt);
 
-		mySceneMng.ChangeScene("GameScene");
+		//mySceneMng.ChangeScene("GameScene");
 
 		return 0;
 	case WM_PAINT:
