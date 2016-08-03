@@ -90,7 +90,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	static HBITMAP backBitmap = NULL;//도화지 비트맵
 	HBITMAP hOldBitmap;//임시 비트맵
 	PAINTSTRUCT ps;
-	static HBITMAP* MyBitmapChar; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP* MyBitmapShip; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP* MyBitmapWeapon; //캐릭터 이미지 모아둔 비트맵
 	static HBITMAP* MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
 	static HBITMAP* MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
 
@@ -99,6 +100,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
+
+		MyBitmapShip = LoadBitmap(TEXT("ShipImg.bmp"));
+		MyBitmapWeapon = LoadBitmap(TEXT("WeaponImg.bmp"));
+		MyBitmapMap = LoadBitmap(TEXT("MapImg.bmp"));
+		MyBitmapUI = LoadBitmap(TEXT("UI.bmp"));
 
 		mySceneMng.ChangeScene(TEXT("GameScene"));
 
