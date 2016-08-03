@@ -11,6 +11,8 @@ private :
 
 public:
 
+	SceneMng();
+
 	VOID ChangeScene(TCHAR*);
 	TCHAR* GetCurrentScene();
 

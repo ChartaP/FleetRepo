@@ -10,7 +10,7 @@ VOID DrawBitmap(HDC, INT, INT, HBITMAP);
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("SurvivalGame");
 
-SceneMng mySceneMng;
+SceneMng mySceneMng = SceneMng();
 RECT crt;
 
 INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, INT nCmdShow)
@@ -78,6 +78,8 @@ VOID CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 
 	mySceneMng.Update();
 
+	TextOut(hdc, 8, 8, mySceneMng.GetCurrentScene(),16);
+
 	ReleaseDC(hWnd, hdc);
 }
 
@@ -100,6 +102,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		mySceneMng.ChangeScene(TEXT("GameScene"));
 
+		SetTimer(hWnd, 1, 1000/60, TimerProc);
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
@@ -117,11 +120,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		//그리는 곳 끝
 
 		BitBlt(hdc, 0, 0, crt.right, crt.bottom, backMemDC, 0, 0, SRCCOPY);
-		TextOut(hdc, 8,8,mySceneMng.GetCurrentScene(),15);
 
 		DeleteObject(SelectObject(backMemDC, hOldBitmap));
 		DeleteDC(backMemDC);
-		//TextOut(hdc, 16, 16, Path, lstrlen(lstrcat(Path, L"char.bmp")));
+		
 		EndPaint(hWnd, &ps);
 		return 0;
 	case WM_DESTROY:

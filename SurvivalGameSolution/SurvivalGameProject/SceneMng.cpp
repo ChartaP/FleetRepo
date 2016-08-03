@@ -1,5 +1,12 @@
 #include "main.h"
 
+SceneMng::SceneMng()
+{
+	curScene = NULL;
+	PrevScene = NULL;
+	gameScene = new GameScene();
+}
+
 VOID SceneMng::ChangeScene(TCHAR*name)
 {
 	if (_tcscmp(name, TEXT("GameScene")) == 0)

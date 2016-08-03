@@ -3,7 +3,7 @@
 class SceneClass
 {
 public:
-	TCHAR name[8];
+	TCHAR name[16];
 
 	virtual VOID FadeIn() = 0;
 	virtual VOID FadeOut() = 0;
