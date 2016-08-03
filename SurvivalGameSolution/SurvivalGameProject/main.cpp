@@ -10,6 +10,7 @@ VOID DrawBitmap(HDC, INT, INT, HBITMAP);
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("First");
 
+SceneMng mySceneMng;
 RECT crt;
 
 INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, INT nCmdShow)
@@ -73,7 +74,7 @@ VOID CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 	HDC hdc;
 	hdc = GetDC(hWnd);
 
-
+	mySceneMng.Update();
 
 	ReleaseDC(hWnd, hdc);
 }
@@ -94,6 +95,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
+
+		mySceneMng.ChangeScene("GameScene");
+
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
