@@ -8,7 +8,7 @@ HBITMAP* LoadBitmap(TCHAR*);
 VOID DrawBitmap(HDC, INT, INT, HBITMAP);
 
 HINSTANCE g_hInst;
-LPCTSTR lpszClass = TEXT("First");
+LPCTSTR lpszClass = TEXT("SurvivalGame");
 
 SceneMng mySceneMng;
 RECT crt;
@@ -33,6 +33,8 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	RegisterClass(&WndClass);
 
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, (HMENU)NULL, hInstance, NULL);
+
+	ShowWindow(hWnd, nCmdShow);
 
 	while (GetMessage(&Message, NULL, 0, 0))
 	{
