@@ -13,16 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Scene">
+      <UniqueIdentifier>{403f2ca7-4e9d-4d48-ba38-379b85c596af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Scene">
+      <UniqueIdentifier>{4b338256-0044-4e23-8cf5-a15e63712421}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="SceneClass.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Scene</Filter>
     </ClCompile>
     <ClCompile Include="SceneMng.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -30,10 +36,10 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SceneClass.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Scene</Filter>
     </ClInclude>
     <ClInclude Include="SceneMng.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
