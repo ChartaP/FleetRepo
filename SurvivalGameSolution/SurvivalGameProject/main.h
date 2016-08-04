@@ -3,6 +3,8 @@
 #include <Windows.h>
 #include <tchar.h>
 
+#include <list>
+
 //Scene Header
 
 #include "SceneMng.h"
