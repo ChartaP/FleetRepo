@@ -146,16 +146,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battleship.cpp" />
+    <ClCompile Include="Corvett.cpp" />
+    <ClCompile Include="Cruiser.cpp" />
+    <ClCompile Include="Destroyer.cpp" />
+    <ClCompile Include="DetectorClass.cpp" />
+    <ClCompile Include="Frigate.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Patrolkiller.cpp" />
+    <ClCompile Include="ProjectileClass.cpp" />
     <ClCompile Include="SceneClass.cpp" />
     <ClCompile Include="SceneMng.cpp" />
+    <ClCompile Include="ShipClass.cpp" />
+    <ClCompile Include="TestBullet.cpp" />
+    <ClCompile Include="TestCannon.cpp" />
+    <ClCompile Include="TestCIWS.cpp" />
+    <ClCompile Include="TestLauncher.cpp" />
+    <ClCompile Include="TestMissile.cpp" />
+    <ClCompile Include="TestRadar.cpp" />
+    <ClCompile Include="TestTorpedo.cpp" />
+    <ClCompile Include="TestVLS.cpp" />
+    <ClCompile Include="WeaponClass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battleship.h" />
+    <ClInclude Include="Corvett.h" />
+    <ClInclude Include="Cruiser.h" />
+    <ClInclude Include="Destroyer.h" />
+    <ClInclude Include="DetectorClass.h" />
+    <ClInclude Include="Frigate.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Patrolkiller.h" />
+    <ClInclude Include="ProjectileClass.h" />
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneMng.h" />
+    <ClInclude Include="ShipClass.h" />
+    <ClInclude Include="TestBullet.h" />
+    <ClInclude Include="TestCannon.h" />
+    <ClInclude Include="TestCIWS.h" />
+    <ClInclude Include="TestLauncher.h" />
+    <ClInclude Include="TestMissile.h" />
+    <ClInclude Include="TestRadar.h" />
+    <ClInclude Include="TestTorpedo.h" />
+    <ClInclude Include="TestVLS.h" />
+    <ClInclude Include="WeaponClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

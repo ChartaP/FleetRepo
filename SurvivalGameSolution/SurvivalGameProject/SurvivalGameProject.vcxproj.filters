@@ -43,6 +43,18 @@
     <Filter Include="헤더 파일\UI">
       <UniqueIdentifier>{20793f18-5799-48bd-a541-24d2f4d0f222}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Object\Detector">
+      <UniqueIdentifier>{6cac150e-ca35-4946-a938-8d0005870aed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object\Detector">
+      <UniqueIdentifier>{4a4b2b82-50ae-4c6d-be50-299e22dad5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Object\Weapon\Projectile">
+      <UniqueIdentifier>{4f2bccb8-f7fc-489f-be8f-a58797474f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object\Weapon\Projectile">
+      <UniqueIdentifier>{4407613a-0a4b-455a-8742-a954b9505e99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +69,60 @@
     <ClCompile Include="GameScene.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="ShipClass.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Cruiser.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Destroyer.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Frigate.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Battleship.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Corvett.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Patrolkiller.cpp">
+      <Filter>소스 파일\Object\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectorClass.cpp">
+      <Filter>소스 파일\Object\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponClass.cpp">
+      <Filter>소스 파일\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="TestRadar.cpp">
+      <Filter>소스 파일\Object\Detector</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCannon.cpp">
+      <Filter>소스 파일\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="TestVLS.cpp">
+      <Filter>소스 파일\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="TestLauncher.cpp">
+      <Filter>소스 파일\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCIWS.cpp">
+      <Filter>소스 파일\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectileClass.cpp">
+      <Filter>소스 파일\Object\Weapon\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBullet.cpp">
+      <Filter>소스 파일\Object\Weapon\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMissile.cpp">
+      <Filter>소스 파일\Object\Weapon\Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTorpedo.cpp">
+      <Filter>소스 파일\Object\Weapon\Projectile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -70,6 +136,60 @@
     </ClInclude>
     <ClInclude Include="GameScene.h">
       <Filter>헤더 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ShipClass.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Battleship.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Corvett.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Cruiser.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Destroyer.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Frigate.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Patrolkiller.h">
+      <Filter>헤더 파일\Object\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectorClass.h">
+      <Filter>헤더 파일\Object\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponClass.h">
+      <Filter>헤더 파일\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="TestRadar.h">
+      <Filter>헤더 파일\Object\Detector</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCannon.h">
+      <Filter>헤더 파일\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="TestVLS.h">
+      <Filter>헤더 파일\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLauncher.h">
+      <Filter>헤더 파일\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCIWS.h">
+      <Filter>헤더 파일\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectileClass.h">
+      <Filter>헤더 파일\Object\Weapon\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBullet.h">
+      <Filter>헤더 파일\Object\Weapon\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMissile.h">
+      <Filter>헤더 파일\Object\Weapon\Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTorpedo.h">
+      <Filter>헤더 파일\Object\Weapon\Projectile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
