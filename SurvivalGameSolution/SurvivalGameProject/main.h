@@ -4,7 +4,5 @@
 #include <tchar.h>
 
 #include "SceneClass.h"
-
 #include "GameScene.h"
-
 #include "SceneMng.h"
