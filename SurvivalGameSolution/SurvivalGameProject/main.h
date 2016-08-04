@@ -3,6 +3,8 @@
 #include <Windows.h>
 #include <tchar.h>
 
-#include "SceneClass.h"
-#include "GameScene.h"
+//Scene Header
+
 #include "SceneMng.h"
+
+//Projectile Header

@@ -1,4 +1,6 @@
 #pragma once
+#include "SceneClass.h"
+#include "GameScene.h"
 
 class SceneMng
 {
