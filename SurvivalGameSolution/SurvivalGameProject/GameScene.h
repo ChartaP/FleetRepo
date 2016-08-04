@@ -11,7 +11,9 @@ public :
 	VOID Enter();
 	VOID Update();
 	VOID Exit();
-private :
+protected:
+
+private:
 	
 
 };

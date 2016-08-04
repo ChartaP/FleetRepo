@@ -1,5 +1,6 @@
 #pragma once
 
+
 class SceneClass
 {
 public:
@@ -12,6 +13,6 @@ public:
 	virtual VOID Update() = 0;
 	virtual VOID Exit() = 0;
 
-private:
+protected:
 
 };

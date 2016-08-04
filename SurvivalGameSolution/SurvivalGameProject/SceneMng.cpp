@@ -17,7 +17,10 @@ VOID SceneMng::ChangeScene(TCHAR*name)
 
 TCHAR* SceneMng::GetCurrentScene() 
 {
-	return curScene->name;
+	if (curScene != NULL)
+		return curScene->name;
+	else
+		return NULL;
 }
 
 VOID SceneMng::Update()
