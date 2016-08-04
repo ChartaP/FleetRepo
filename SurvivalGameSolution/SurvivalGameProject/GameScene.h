@@ -1,5 +1,4 @@
 #pragma once
-#include "SceneClass.h"
 
 class GameScene : public SceneClass
 {
