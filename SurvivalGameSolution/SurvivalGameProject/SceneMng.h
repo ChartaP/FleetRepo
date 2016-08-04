@@ -4,6 +4,7 @@
 
 class SceneMng
 {
+
 private :
 
 	SceneClass* curScene;
