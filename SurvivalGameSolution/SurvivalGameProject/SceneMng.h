@@ -10,7 +10,7 @@ private :
 	SceneClass* curScene;
 	SceneClass* PrevScene;
 
-	GameScene* gameScene;
+	GameScene gameScene;
 
 public:
 

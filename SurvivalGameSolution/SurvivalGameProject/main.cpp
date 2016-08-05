@@ -78,7 +78,7 @@ VOID CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 
 	mySceneMng.Update();
 
-	TextOut(hdc, 8, 8, mySceneMng.GetCurrentScene(),16);
+	TextOut(hdc, 8, 8, mySceneMng.GetCurrentScene(),sizeof(TCHAR)*9);
 
 	ReleaseDC(hWnd, hdc);
 }
