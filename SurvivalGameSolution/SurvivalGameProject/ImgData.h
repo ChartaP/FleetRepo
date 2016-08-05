@@ -18,8 +18,8 @@ typedef struct
 
 
 //Map
-#define MAP_SEA01_INDEX 0;
-#define MAP_SEA01_DATA (ImgData){1,1,64,64};
+#define MAP_SEA01_INDEX 0
+#define MAP_SEA01_DATA {1,1,64,64}
 
 extern ImgData ShipDir[128];
 extern ImgData WeaponDir[128];

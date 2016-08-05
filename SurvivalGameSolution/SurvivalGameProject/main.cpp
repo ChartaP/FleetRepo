@@ -50,6 +50,14 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 	return (INT)Message.wParam;
 }
 
+VOID setImgDir()
+{
+	
+	MapDir[MAP_SEA01_INDEX] = MAP_SEA01_DATA;
+
+
+}
+
 HBITMAP* LoadBitmap(TCHAR* FILE_NAME)
 {
 	static HBITMAP bmp = (HBITMAP)LoadImage(NULL, FILE_NAME , IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
@@ -104,7 +112,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
-
+		setImgDir();
 		MyBitmapShip = LoadBitmap(TEXT("ShipImg.bmp"));
 		MyBitmapWeapon = LoadBitmap(TEXT("WeaponImg.bmp"));
 		MyBitmapMap = LoadBitmap(TEXT("MapImg.bmp"));
