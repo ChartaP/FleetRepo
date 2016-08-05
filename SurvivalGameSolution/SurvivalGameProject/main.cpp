@@ -52,10 +52,7 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 
 VOID setImgDir()
 {
-	
-	MapDir[MAP_SEA01_INDEX] = MAP_SEA01_DATA;
-
-
+	MapDir[MAP_SEA01_INDEX%4000] = MAP_SEA01_DATA;
 }
 
 HBITMAP* LoadBitmap(TCHAR* FILE_NAME)
@@ -71,13 +68,20 @@ VOID DrawBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX,INT ScaleY,INT ImgNum, H
 	HDC MemDC;
 	HBITMAP OldBitmap;
 	BITMAP bit;
+	ImgData tempData;
+
+	switch (ImgNum / 1000)
+	{
+	case 4:
+		tempData = MapDir[ImgNum % 4000];
+	}
 
 	MemDC = CreateCompatibleDC(hdc);
 	OldBitmap = (HBITMAP)SelectObject(MemDC, hBit);
 
 	GetObject(hBit, sizeof(BITMAP), &bit);
-
-	TransparentBlt(hdc, PosX, PosY, ScaleX, ScaleY, MemDC, 0, 0, 8, 8, RGB(255, 0, 255));
+	
+	TransparentBlt(hdc, PosX, PosY, ScaleX, ScaleY, MemDC, tempData.xPos, tempData.yPos, tempData.xScale, tempData.yScale, RGB(255, 0, 255));
 
 	SelectObject(MemDC, OldBitmap);
 	DeleteDC(MemDC);
