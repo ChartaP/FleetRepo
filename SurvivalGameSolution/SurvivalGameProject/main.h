@@ -5,6 +5,8 @@
 
 #include <list>
 
+#include "ImgData.h"
+
 //Scene Header
 
 #include "SceneMng.h"
@@ -12,3 +14,4 @@
 //Projectile Header
 
 //#include "ProjectileClass.h"
+
