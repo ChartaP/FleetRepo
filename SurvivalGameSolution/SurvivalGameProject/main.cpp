@@ -52,7 +52,7 @@ HBITMAP* LoadBitmap(TCHAR* FILE_NAME)
 }
 
 
-VOID DrawBitmap(HDC hdc, INT x, INT y, HBITMAP hBit)
+VOID DrawBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX,INT ScaleY,INT ImgNum, HBITMAP hBit)
 {
 	HDC MemDC;
 	HBITMAP OldBitmap;
@@ -63,9 +63,7 @@ VOID DrawBitmap(HDC hdc, INT x, INT y, HBITMAP hBit)
 
 	GetObject(hBit, sizeof(BITMAP), &bit);
 
-	TransparentBlt(hdc, x, y, 48, 48, MemDC, 0, 0, 8, 8, RGB(255, 0, 255));
-		
-
+	TransparentBlt(hdc, PosX, PosY, ScaleX, ScaleY, MemDC, 0, 0, 8, 8, RGB(255, 0, 255));
 
 	SelectObject(MemDC, OldBitmap);
 	DeleteDC(MemDC);
