@@ -13,6 +13,12 @@ LPCTSTR lpszClass = TEXT("SurvivalGame");
 SceneMng mySceneMng = SceneMng();
 RECT crt;
 
+ImgData ShipDir[128];
+ImgData WeaponDir[128];
+ImgData UIDir[128];
+ImgData MapDir[128];
+
+
 INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, INT nCmdShow)
 {
 	HWND hWnd;
