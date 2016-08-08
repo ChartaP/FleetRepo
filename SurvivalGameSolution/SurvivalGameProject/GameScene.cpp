@@ -2,7 +2,7 @@
 
 GameScene::GameScene()
 {
-	_tcscpy_s(name,sizeof(TCHAR)*16, TEXT("GameScene"));
+	_tcscpy_s(name,_tcslen(TEXT("GameScene")), TEXT("GameScene"));
 }
 
 VOID GameScene::FadeIn()
