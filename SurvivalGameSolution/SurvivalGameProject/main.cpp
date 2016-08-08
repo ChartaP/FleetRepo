@@ -157,12 +157,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	static HBITMAP* MyBitmapWeapon; //캐릭터 이미지 모아둔 비트맵
 	static HBITMAP* MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
 	static HBITMAP* MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
-
+	HRGN hRgn;
+	static RECT GameScreen;
 
 	switch (iMessage)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
+		GameScreen.top = crt.top + 64;
+		GameScreen.bottom = crt.bottom - 64;
+
+		GameScreen.left = (crt.right/2) - ((crt.bottom/2)-64);
+		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 64);
+
 		mySceneMng = new SceneMng();
 
 		setImgDir();
@@ -175,6 +182,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		SetTimer(hWnd, 1, 1000/60, TimerProc);
 		return 0;
+	case WM_SIZE:
+		GetClientRect(hWnd, &crt);
+		GameScreen.top = crt.top + 64;
+		GameScreen.bottom = crt.bottom - 64;
+
+		GameScreen.left = (crt.right / 2) - ((crt.bottom / 2) - 64);
+		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 64);
+
+		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
 
@@ -186,7 +202,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
+			//월드맵
 			DrawWorldMap(backMemDC, *MyBitmapMap);
+
+			//클리핑 영역
+			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
+			SelectClipRgn(hdc, hRgn);
+
+			//UI
+			
+
 		}
 		//그리는 곳 끝
 
@@ -194,6 +219,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 
 		DeleteObject(SelectObject(backMemDC, hOldBitmap));
+		DeleteObject(hRgn);
 		DeleteDC(backMemDC);
 		EndPaint(hWnd, &ps);
 		return 0;
