@@ -1,24 +1,20 @@
 #pragma once
-#include "SceneClass.h"
-#include "GameScene.h"
 
 class SceneMng
 {
 
-private :
+private:
 
-	SceneClass* curScene;
-	SceneClass* PrevScene;
+	SceneClass* curScene = NULL;
+	SceneClass* PrevScene = NULL;
 
-	GameScene gameScene;
+	GameScene* gameScene = NULL;
+
 
 public:
-
 	SceneMng();
-
 	VOID ChangeScene(TCHAR*);
 	TCHAR* GetCurrentScene();
-
 	VOID Update();
 
 };

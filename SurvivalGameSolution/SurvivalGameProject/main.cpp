@@ -11,7 +11,7 @@ VOID DrawWorldMap(HDC,HBITMAP);
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("SurvivalGame");
 
-//SceneMng mySceneMng = SceneMng();
+SceneMng* mySceneMng = NULL;
 RECT crt;
 
 ImgData ShipDir[128];
@@ -56,30 +56,39 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 
 VOID setImgDir()
 {
+	memset(ShipDir, NULL, sizeof(ImgData) * 128);
+	memset(WeaponDir, NULL, sizeof(ImgData) * 128);
+	memset(UIDir, NULL, sizeof(ImgData) * 128);
+	memset(MapDir, NULL, sizeof(ImgData) * 128);
+
 	MapDir[MAP_SEA01_INDEX%4000] = MAP_SEA01_DATA;
 }
 
 HBITMAP* LoadBitmap(INT num)
 {
-	static HBITMAP shipBmp = (HBITMAP)LoadImage(NULL, TEXT("ShipImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-	static HBITMAP weaponBmp = (HBITMAP)LoadImage(NULL, TEXT("WeaponImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-	static HBITMAP mapBmp = (HBITMAP)LoadImage(NULL, TEXT("MapImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-	static HBITMAP UIBmp = (HBITMAP)LoadImage(NULL, TEXT("UI.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+	static HBITMAP shipBmp ;
+	static HBITMAP weaponBmp ;
+	static HBITMAP mapBmp ;
+	static HBITMAP UIBmp ;
 
 	HBITMAP *hBMP;
 
 	switch (num)
 	{
 	case 1:
+		shipBmp = (HBITMAP)LoadImage(NULL, TEXT("ShipImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 		hBMP = &shipBmp;
 		return hBMP;
 	case 2:
+		weaponBmp = (HBITMAP)LoadImage(NULL, TEXT("WeaponImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 		hBMP = &weaponBmp;
 		return hBMP;
 	case 3:
+		mapBmp = (HBITMAP)LoadImage(NULL, TEXT("MapImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 		hBMP = &mapBmp;
 		return hBMP;
 	case 4:
+		UIBmp = (HBITMAP)LoadImage(NULL, TEXT("UI.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 		hBMP = &UIBmp;
 		return hBMP;
 	}
@@ -128,9 +137,9 @@ VOID CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 	HDC hdc;
 	hdc = GetDC(hWnd);
 
-	//mySceneMng.Update();
+	mySceneMng->Update();
 
-	//TextOut(hdc, 8, 8, mySceneMng.GetCurrentScene(),sizeof(TCHAR)*9);
+	TextOut(hdc, 8, 8, mySceneMng->GetCurrentScene(),sizeof(TCHAR)*	_tcslen(mySceneMng->GetCurrentScene()));
 
 	InvalidateRect(hWnd,NULL,FALSE);
 
@@ -154,13 +163,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
+		mySceneMng = new SceneMng();
+
 		setImgDir();
 		MyBitmapShip = LoadBitmap(1);
 		MyBitmapWeapon = LoadBitmap(2);
 		MyBitmapMap = LoadBitmap(3);
 		MyBitmapUI = LoadBitmap(4);
 
-		//mySceneMng.ChangeScene(TEXT("GameScene"));
+		mySceneMng->ChangeScene(TEXT("GameScene"));
 
 		SetTimer(hWnd, 1, 1000/60, TimerProc);
 		return 0;
@@ -181,9 +192,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		BitBlt(hdc, 0, 0, crt.right, crt.bottom, backMemDC, 0, 0, SRCCOPY);
 
+
 		DeleteObject(SelectObject(backMemDC, hOldBitmap));
 		DeleteDC(backMemDC);
-		
 		EndPaint(hWnd, &ps);
 		return 0;
 	case WM_DESTROY:

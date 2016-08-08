@@ -9,6 +9,8 @@
 
 //Scene Header
 
+#include "SceneClass.h"
+#include "GameScene.h"
 #include "SceneMng.h"
 
 //Projectile Header

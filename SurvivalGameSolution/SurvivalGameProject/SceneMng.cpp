@@ -4,7 +4,7 @@ SceneMng::SceneMng()
 {
 	curScene = NULL;
 	PrevScene = NULL;
-	gameScene = GameScene();
+	gameScene = new GameScene();
 }
 
 VOID SceneMng::ChangeScene(TCHAR*name)
@@ -13,7 +13,7 @@ VOID SceneMng::ChangeScene(TCHAR*name)
 	{
 		if (curScene != NULL)
 			PrevScene = curScene;
-		curScene = &gameScene;
+		curScene = gameScene;
 	}
 }
 
