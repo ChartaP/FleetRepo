@@ -64,7 +64,7 @@ VOID setImgDir()
 	MapDir[MAP_SEA01_INDEX%4000] = MAP_SEA01_DATA;
 }
 
-HBITMAP* LoadBitmap(INT num)
+HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
 {
 	static HBITMAP shipBmp ;
 	static HBITMAP weaponBmp ;
@@ -158,7 +158,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	static HBITMAP* MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
 	static HBITMAP* MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
 	HRGN hRgn;
-	static RECT GameScreen;
+	static RECT GameScreen; //월드맵 클립영역
 
 	switch (iMessage)
 	{
@@ -200,15 +200,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			//월드맵
-			DrawWorldMap(backMemDC, *MyBitmapMap);
-
+			DrawBitmap(backMemDC, 0, 0, 2000, 1000, MAP_SEA01_INDEX, *MyBitmapMap);
 			//클리핑 영역
 			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
-			SelectClipRgn(hdc, hRgn);
-
-			//UI
-			
+			SelectClipRgn(backMemDC, hRgn);
+			//월드맵
+			DrawWorldMap(backMemDC, *MyBitmapMap);
 
 		}
 		//그리는 곳 끝
