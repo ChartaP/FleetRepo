@@ -164,11 +164,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_CREATE:
 		GetClientRect(hWnd, &crt);
-		GameScreen.top = crt.top + 64;
-		GameScreen.bottom = crt.bottom - 64;
-
-		GameScreen.left = (crt.right/2) - ((crt.bottom/2)-64);
-		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 64);
+		GameScreen.top = crt.top + 32;
+		GameScreen.bottom = crt.bottom - 32;
+		GameScreen.left = (crt.right/2) - ((crt.bottom/2)-32);
+		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 32);
 
 		mySceneMng = new SceneMng();
 
@@ -184,11 +183,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		return 0;
 	case WM_SIZE:
 		GetClientRect(hWnd, &crt);
-		GameScreen.top = crt.top + 64;
-		GameScreen.bottom = crt.bottom - 64;
-
-		GameScreen.left = (crt.right / 2) - ((crt.bottom / 2) - 64);
-		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 64);
+		GameScreen.top = crt.top + 32;
+		GameScreen.bottom = crt.bottom - 32;
+		GameScreen.left = (crt.right / 2) - ((crt.bottom / 2) - 32);
+		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 32);
 
 		return 0;
 	case WM_PAINT:
