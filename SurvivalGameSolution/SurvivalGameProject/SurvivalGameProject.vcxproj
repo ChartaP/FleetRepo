@@ -153,6 +153,7 @@
     <ClCompile Include="DetectorClass.cpp" />
     <ClCompile Include="FleetClass.cpp" />
     <ClCompile Include="Frigate.cpp" />
+    <ClCompile Include="GameMng.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Patrolkiller.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="DetectorClass.h" />
     <ClInclude Include="FleetClass.h" />
     <ClInclude Include="Frigate.h" />
+    <ClInclude Include="GameMng.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="ImgData.h" />
     <ClInclude Include="main.h" />

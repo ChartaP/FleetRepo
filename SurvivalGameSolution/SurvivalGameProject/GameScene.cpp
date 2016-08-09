@@ -9,7 +9,7 @@ GameScene::GameScene()
 
 VOID GameScene::Enter()
 {
-	
+	MyFleet = new FleetClass();
 }
 
 VOID GameScene::Update()
