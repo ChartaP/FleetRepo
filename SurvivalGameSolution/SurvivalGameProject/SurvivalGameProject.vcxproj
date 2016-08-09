@@ -186,6 +186,7 @@
     <ClInclude Include="SceneClass.h" />
     <ClInclude Include="SceneMng.h" />
     <ClInclude Include="ShipClass.h" />
+    <ClInclude Include="ShipData.h" />
     <ClInclude Include="TestBullet.h" />
     <ClInclude Include="TestCannon.h" />
     <ClInclude Include="TestCIWS.h" />
