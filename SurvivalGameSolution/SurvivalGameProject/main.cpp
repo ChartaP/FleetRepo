@@ -14,10 +14,10 @@ LPCTSTR lpszClass = TEXT("SurvivalGame");
 SceneMng* mySceneMng = NULL;
 RECT crt;
 
-ImgData ShipDir[128];
-ImgData WeaponDir[128];
-ImgData UIDir[128];
-ImgData MapDir[128];
+ImgData ShipImgDir[128];
+ImgData WeaponImgDir[128];
+ImgData UIImgDir[128];
+ImgData MapImgDir[128];
 
 INT w_xPos=0;
 INT w_yPos=0;
@@ -56,13 +56,13 @@ INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd
 
 VOID setImgDir()
 {
-	memset(ShipDir, NULL, sizeof(ImgData) * 128);
-	memset(WeaponDir, NULL, sizeof(ImgData) * 128);
-	memset(UIDir, NULL, sizeof(ImgData) * 128);
-	memset(MapDir, NULL, sizeof(ImgData) * 128);
+	memset(ShipImgDir, NULL, sizeof(ImgData) * 128);
+	memset(WeaponImgDir, NULL, sizeof(ImgData) * 128);
+	memset(UIImgDir, NULL, sizeof(ImgData) * 128);
+	memset(MapImgDir, NULL, sizeof(ImgData) * 128);
 
-	UIDir[UI_BACK01_INDEX - 3000] = UI_BACK01_DATA;
-	MapDir[MAP_SEA01_INDEX - 4000] = MAP_SEA01_DATA;
+	UIImgDir[UI_IMG_BACK01_INDEX - 3000] = UI_IMG_BACK01_DATA;
+	MapImgDir[MAP_IMG_SEA01_INDEX - 4000] = MAP_IMG_SEA01_DATA;
 }
 
 HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
@@ -100,16 +100,16 @@ VOID DrawBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX,INT ScaleY,INT ImgNum, H
 	switch (ImgNum / 1000)
 	{
 	case 1:
-		tempData = ShipDir[ImgNum - 1000];
+		tempData = ShipImgDir[ImgNum - 1000];
 		break;
 	case 2:
-		tempData = WeaponDir[ImgNum - 2000];
+		tempData = WeaponImgDir[ImgNum - 2000];
 		break;
 	case 3:
-		tempData = UIDir[ImgNum - 3000];
+		tempData = UIImgDir[ImgNum - 3000];
 		break;
 	case 4:
-		tempData = MapDir[ImgNum - 4000];
+		tempData = MapImgDir[ImgNum - 4000];
 		break;
 	}
 
@@ -131,7 +131,7 @@ VOID DrawWorldMap(HDC hdc, HBITMAP hBit)
 	{
 		for (j = 0; j < 64; j++)
 		{
-			DrawBitmap(hdc,i*64,j*64,64,64,MAP_SEA01_INDEX,hBit);
+			DrawBitmap(hdc,i*64,j*64,64,64,MAP_IMG_SEA01_INDEX,hBit);
 		}
 	}
 }
@@ -204,7 +204,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, UI_BACK01_INDEX, *MyBitmapUI);
+			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, UI_IMG_BACK01_INDEX, *MyBitmapUI);
 
 			//클리핑 영역
 			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);

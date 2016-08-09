@@ -6,6 +6,9 @@
 #include <list>
 
 #include "ImgData.h"
+#include "ShipData.h"
+
+#include "FleetClass.h"
 
 //Scene Header
 
