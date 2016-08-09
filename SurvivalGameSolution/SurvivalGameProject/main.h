@@ -5,6 +5,8 @@
 
 #include <list>
 
+#include "GameMng.h"
+
 #include "ImgData.h"
 #include "ShipData.h"
 
