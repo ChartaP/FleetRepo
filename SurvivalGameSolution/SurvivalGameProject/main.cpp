@@ -205,11 +205,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		//그리는 곳 시작
 		{
 			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, UI_BACK01_INDEX, *MyBitmapUI);
+
 			//클리핑 영역
 			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
 			SelectClipRgn(backMemDC, hRgn);
 			//월드맵
 			DrawWorldMap(backMemDC, *MyBitmapMap);
+
 		}
 		//그리는 곳 끝
 

@@ -123,6 +123,9 @@
     <ClCompile Include="TestTorpedo.cpp">
       <Filter>소스 파일\Object\Weapon\Projectile</Filter>
     </ClCompile>
+    <ClCompile Include="FleetClass.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -193,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="ImgData.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FleetClass.h">
+      <Filter>헤더 파일\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
