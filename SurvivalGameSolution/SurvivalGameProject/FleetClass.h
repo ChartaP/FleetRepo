@@ -13,16 +13,16 @@ private:
 	INT fleetScale;
 	INT fleetFormation;
 	ShipClass* flagShip;
-	ShipClass childShip[8];
+	ShipClass* childShip[8];
 
 public:
-	FleetClass();
-	FleetClass(ShipData*, INT);
+	FleetClass(ShipData*);
 
 	ShipClass* getFlagShip();
 	ShipClass* getChildShip(INT);
 	INT getFleetScale();
 
+	VOID addChildShip(ShipData*);
 	VOID setPostion(INT, INT);
 	VOID moveToPath();
 

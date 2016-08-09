@@ -1,18 +1,12 @@
 #include "main.h"
 
-FleetClass::FleetClass()
+FleetClass::FleetClass(ShipData* flagShipData)
 {
-	fleetScale = 0;
-	fleetFormation = FORMATION_RING;
-	flagShip = NULL;
-	memset(childShip, NULL, sizeof(ShipClass) * 8);
-}
-
-FleetClass::FleetClass(ShipData* shipData, INT scale)
-{
-	fleetScale = scale;
+	fleetScale = 1;
 	fleetFormation = FORMATION_RING;
 
+	childShip[0]= new ShipClass();
+	flagShip = childShip[0];
 }
 
 ShipClass* FleetClass::getFlagShip()//기함 반환
@@ -22,12 +16,17 @@ ShipClass* FleetClass::getFlagShip()//기함 반환
 
 ShipClass* FleetClass::getChildShip(INT num)//소속함 반환
 {
-	return &(childShip[num]);
+	return childShip[num];
 }
 
 INT FleetClass::getFleetScale()//함대 규모 반환
 {
 	return fleetScale;
+}
+
+VOID FleetClass::addChildShip(ShipData*)
+{
+
 }
 
 VOID FleetClass::setPostion(INT x,INT y)

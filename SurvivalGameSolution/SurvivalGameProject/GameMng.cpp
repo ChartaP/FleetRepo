@@ -1,1 +1,6 @@
-#include "GameMng.h"
+#include "main.h"
+
+GameMng::GameMng()
+{
+	
+}

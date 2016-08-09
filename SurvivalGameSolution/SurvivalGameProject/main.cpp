@@ -6,6 +6,7 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("SurvivalGame");
 
+GameMng* myGameMng = NULL;
 SceneMng* mySceneMng = NULL;
 RECT crt;
 
@@ -175,6 +176,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		GameScreen.bottom = crt.bottom - 32;
 		GameScreen.left = (crt.right/2) - ((crt.bottom/2)-32);
 		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 32);
+
+		myGameMng = new GameMng();
+
+		myGameMng->myFlagShipData = ShipDataDir[SHIP_TEST_TEST_INDEX];
 
 		mySceneMng = new SceneMng();
 

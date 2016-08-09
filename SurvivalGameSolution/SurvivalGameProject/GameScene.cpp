@@ -9,7 +9,7 @@ GameScene::GameScene()
 
 VOID GameScene::Enter()
 {
-	MyFleet = new FleetClass();
+	MyFleet = new FleetClass(&(myGameMng->myFlagShipData));
 }
 
 VOID GameScene::Update()

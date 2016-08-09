@@ -5,10 +5,10 @@
 
 #include <list>
 
-#include "GameMng.h"
-
 #include "ImgData.h"
 #include "ShipData.h"
+
+#include "GameMng.h"
 
 #include "ShipClass.h"
 
@@ -28,3 +28,5 @@ HBITMAP* LoadBitmap(TCHAR*);
 VOID setImgDir();
 VOID DrawBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
 VOID DrawWorldMap(HDC, HBITMAP);
+
+extern GameMng* myGameMng;
