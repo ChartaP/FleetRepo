@@ -11,6 +11,6 @@ public :
 protected:
 
 private:
-	
+	FleetClass* MyFleet;
 
 };

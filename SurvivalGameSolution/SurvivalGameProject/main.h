@@ -21,3 +21,8 @@
 //Projectile Header
 
 //#include "ProjectileClass.h"
+
+HBITMAP* LoadBitmap(TCHAR*);
+VOID setImgDir();
+VOID DrawBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
+VOID DrawWorldMap(HDC, HBITMAP);

@@ -7,7 +7,6 @@ private:
 public:
 	ShipClass();
 	VOID setShip();
-	
-	VOID MoveToFairway();
+	VOID setPosition();
 	VOID Update();
 };

@@ -10,11 +10,8 @@ FleetClass::FleetClass()
 
 FleetClass::FleetClass(ShipData* shipData, INT scale)
 {
-	INT i;
 	fleetScale = scale;
 	fleetFormation = FORMATION_RING;
-
-	
 
 }
 
@@ -33,7 +30,22 @@ INT FleetClass::getFleetScale()//함대 규모 반환
 	return fleetScale;
 }
 
+VOID FleetClass::setPostion(INT x,INT y)
+{
+
+}
+
+VOID FleetClass::moveToPath()
+{
+
+}
+
 VOID FleetClass::Update()//함대 상태 업데이트
+{
+
+}
+
+VOID FleetClass::FleetDraw(HDC hdc, HBITMAP hBit)
 {
 
 }

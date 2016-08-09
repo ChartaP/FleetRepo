@@ -7,6 +7,9 @@ class FleetClass
 {
 private:
 
+	INT xPos;
+	INT yPos;
+
 	INT fleetScale;
 	INT fleetFormation;
 	ShipClass* flagShip;
@@ -15,9 +18,15 @@ private:
 public:
 	FleetClass();
 	FleetClass(ShipData*, INT);
+
 	ShipClass* getFlagShip();
 	ShipClass* getChildShip(INT);
 	INT getFleetScale();
+
+	VOID setPostion(INT, INT);
+	VOID moveToPath();
+
 	VOID Update();
 
+	VOID FleetDraw(HDC, HBITMAP);
 };

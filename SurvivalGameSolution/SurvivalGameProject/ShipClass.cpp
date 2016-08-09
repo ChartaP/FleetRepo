@@ -11,7 +11,7 @@ VOID ShipClass::setShip()
 
 }
 
-VOID ShipClass::MoveToFairway()
+VOID ShipClass::setPosition()
 {
 
 }

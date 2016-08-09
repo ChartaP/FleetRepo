@@ -9,11 +9,18 @@ SceneMng::SceneMng()
 
 VOID SceneMng::ChangeScene(TCHAR*name)
 {
+	if (curScene != NULL)
+	{
+		curScene->Exit();
+		PrevScene = curScene;
+	}
 	if (_tcscmp(name, TEXT("GameScene")) == 0)
 	{
-		if (curScene != NULL)
-			PrevScene = curScene;
 		curScene = gameScene;
+	}
+	if (curScene != NULL)
+	{
+		curScene->Enter();
 	}
 }
 

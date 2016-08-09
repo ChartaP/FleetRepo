@@ -9,7 +9,7 @@ GameScene::GameScene()
 
 VOID GameScene::Enter()
 {
-
+	
 }
 
 VOID GameScene::Update()

@@ -3,16 +3,13 @@
 VOID CALLBACK TimerProc(HWND, UINT, UINT_PTR, DWORD);
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-HBITMAP* LoadBitmap(TCHAR*);
-VOID setImgDir();
-VOID DrawBitmap(HDC,INT,INT,INT,INT,INT,HBITMAP);
-VOID DrawWorldMap(HDC,HBITMAP);
-
 HINSTANCE g_hInst;
 LPCTSTR lpszClass = TEXT("SurvivalGame");
 
 SceneMng* mySceneMng = NULL;
 RECT crt;
+
+ShipData ShipDataDir[128];
 
 ImgData ShipImgDir[128];
 ImgData WeaponImgDir[128];
@@ -63,6 +60,12 @@ VOID setImgDir()
 
 	UIImgDir[UI_IMG_BACK01_INDEX - 3000] = UI_IMG_BACK01_DATA;
 	MapImgDir[MAP_IMG_SEA01_INDEX - 4000] = MAP_IMG_SEA01_DATA;
+}
+
+VOID setShipDir()
+{
+	memset(ShipDataDir, NULL, sizeof(ShipData) * 128);
+	ShipDataDir[SHIP_TEST_TEST_INDEX] = SHIP_TEST_TEST_DATA;
 }
 
 HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
@@ -180,6 +183,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		MyBitmapWeapon = LoadBitmap(2);
 		MyBitmapUI = LoadBitmap(3);
 		MyBitmapMap = LoadBitmap(4);
+
+		VOID setShipDir();
 
 		mySceneMng->ChangeScene(TEXT("GameScene"));
 
