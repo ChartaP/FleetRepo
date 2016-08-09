@@ -3,6 +3,8 @@
 class ShipClass
 {
 private:
+	INT xPos;
+	INT yPos;
 	INT xScale;
 	INT yScale;
 	INT ShipType;
@@ -18,7 +20,7 @@ private:
 
 public:
 	ShipClass();
-	VOID setShip();
-	VOID setPosition();
+	VOID setShip(ShipData*);
+	VOID setPosition(INT,INT);
 	VOID Update();
 };

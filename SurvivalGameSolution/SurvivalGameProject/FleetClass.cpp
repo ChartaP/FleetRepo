@@ -6,6 +6,8 @@ FleetClass::FleetClass(ShipData* flagShipData)
 	fleetFormation = FORMATION_RING;
 
 	childShip[0]= new ShipClass();
+	childShip[0]->setShip(flagShipData);
+
 	flagShip = childShip[0];
 }
 
@@ -29,9 +31,33 @@ VOID FleetClass::addChildShip(ShipData*)
 
 }
 
-VOID FleetClass::setPostion(INT x,INT y)
+VOID FleetClass::setFleetPostion(INT x,INT y)
 {
 
+}
+
+VOID FleetClass::setChildPostion()
+{
+	INT i;
+	INT x, y;
+	INT distance = 100;
+	INT angle;
+	for (i=0;i<fleetScale;i++)
+	{
+		if (i==0)
+		{
+			childShip[0]->setPosition(xPos,yPos);
+		}
+		else
+		{
+			angle = 360 / i;
+
+			x = cos(angle) * distance;
+			y = sin(angle) * distance;
+
+			childShip[0]->setPosition(xPos+x, yPos+y);
+		}
+	}
 }
 
 VOID FleetClass::moveToPath()

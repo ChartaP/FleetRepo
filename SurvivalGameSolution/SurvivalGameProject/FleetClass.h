@@ -23,7 +23,8 @@ public:
 	INT getFleetScale();
 
 	VOID addChildShip(ShipData*);
-	VOID setPostion(INT, INT);
+	VOID setFleetPostion(INT, INT);
+	VOID setChildPostion();
 	VOID moveToPath();
 
 	VOID Update();
