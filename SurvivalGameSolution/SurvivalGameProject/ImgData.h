@@ -15,7 +15,8 @@ typedef struct
 
 
 //UI
-
+#define UI_BACK01_INDEX 3000
+#define UI_BACK01_DATA {177,1,126,126}
 
 //Map
 #define MAP_SEA01_INDEX 4000

@@ -61,7 +61,8 @@ VOID setImgDir()
 	memset(UIDir, NULL, sizeof(ImgData) * 128);
 	memset(MapDir, NULL, sizeof(ImgData) * 128);
 
-	MapDir[MAP_SEA01_INDEX%4000] = MAP_SEA01_DATA;
+	UIDir[UI_BACK01_INDEX - 3000] = UI_BACK01_DATA;
+	MapDir[MAP_SEA01_INDEX - 4000] = MAP_SEA01_DATA;
 }
 
 HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
@@ -71,28 +72,21 @@ HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
 	static HBITMAP mapBmp ;
 	static HBITMAP UIBmp ;
 
-	HBITMAP *hBMP;
-
 	switch (num)
 	{
 	case 1:
 		shipBmp = (HBITMAP)LoadImage(NULL, TEXT("ShipImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		hBMP = &shipBmp;
-		return hBMP;
+		return &shipBmp;
 	case 2:
 		weaponBmp = (HBITMAP)LoadImage(NULL, TEXT("WeaponImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		hBMP = &weaponBmp;
-		return hBMP;
+		return &weaponBmp;
 	case 3:
-		mapBmp = (HBITMAP)LoadImage(NULL, TEXT("MapImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		hBMP = &mapBmp;
-		return hBMP;
-	case 4:
 		UIBmp = (HBITMAP)LoadImage(NULL, TEXT("UI.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		hBMP = &UIBmp;
-		return hBMP;
+		return&UIBmp;
+	case 4:
+		mapBmp = (HBITMAP)LoadImage(NULL, TEXT("MapImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+		return &mapBmp;
 	}
-
 	return NULL;
 }
 
@@ -105,8 +99,18 @@ VOID DrawBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX,INT ScaleY,INT ImgNum, H
 
 	switch (ImgNum / 1000)
 	{
+	case 1:
+		tempData = ShipDir[ImgNum - 1000];
+		break;
+	case 2:
+		tempData = WeaponDir[ImgNum - 2000];
+		break;
+	case 3:
+		tempData = UIDir[ImgNum - 3000];
+		break;
 	case 4:
-		tempData = MapDir[ImgNum % 4000];
+		tempData = MapDir[ImgNum - 4000];
+		break;
 	}
 
 	MemDC = CreateCompatibleDC(hdc);
@@ -174,8 +178,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		setImgDir();
 		MyBitmapShip = LoadBitmap(1);
 		MyBitmapWeapon = LoadBitmap(2);
-		MyBitmapMap = LoadBitmap(3);
-		MyBitmapUI = LoadBitmap(4);
+		MyBitmapUI = LoadBitmap(3);
+		MyBitmapMap = LoadBitmap(4);
 
 		mySceneMng->ChangeScene(TEXT("GameScene"));
 
@@ -200,13 +204,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			DrawBitmap(backMemDC, 0, 0, 2000, 1000, MAP_SEA01_INDEX, *MyBitmapMap);
+			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, UI_BACK01_INDEX, *MyBitmapUI);
 			//클리핑 영역
 			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
 			SelectClipRgn(backMemDC, hRgn);
 			//월드맵
 			DrawWorldMap(backMemDC, *MyBitmapMap);
-
 		}
 		//그리는 곳 끝
 
