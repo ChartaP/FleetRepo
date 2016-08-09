@@ -1,8 +1,16 @@
 #pragma once
 
+
+
 typedef struct
 {
-	
+	INT xScale;
+	INT yScale;
+	INT ShipType;
+	INT ShipImg;
+	INT ShipSpeed;
+
+
 }ShipData;
 
 #define SHIP_TEST_TEST_INDEX 0

@@ -55,6 +55,9 @@
     <Filter Include="헤더 파일\Object\Weapon\Projectile">
       <UniqueIdentifier>{4407613a-0a4b-455a-8742-a954b9505e99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Data">
+      <UniqueIdentifier>{9c1ea32f-e06e-4d5e-b301-3806b4c76bc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,14 +197,14 @@
     <ClInclude Include="TestTorpedo.h">
       <Filter>헤더 파일\Object\Weapon\Projectile</Filter>
     </ClInclude>
-    <ClInclude Include="ImgData.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="FleetClass.h">
       <Filter>헤더 파일\Object</Filter>
     </ClInclude>
+    <ClInclude Include="ImgData.h">
+      <Filter>헤더 파일\Data</Filter>
+    </ClInclude>
     <ClInclude Include="ShipData.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
