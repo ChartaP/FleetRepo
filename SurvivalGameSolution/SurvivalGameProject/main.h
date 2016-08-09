@@ -8,6 +8,8 @@
 #include "ImgData.h"
 #include "ShipData.h"
 
+#include "ShipClass.h"
+
 #include "FleetClass.h"
 
 //Scene Header
