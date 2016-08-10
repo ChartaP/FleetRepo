@@ -59,8 +59,8 @@ VOID setImgDir()
 	memset(UIImgDir, NULL, sizeof(ImgData) * 128);
 	memset(MapImgDir, NULL, sizeof(ImgData) * 128);
 
-	UIImgDir[UI_IMG_BACK01_INDEX - 3000] = UI_IMG_BACK01_DATA;
-	MapImgDir[MAP_IMG_SEA01_INDEX - 4000] = MAP_IMG_SEA01_DATA;
+	UIImgDir[IMG_UI_BACK01_INDEX - 3000] = IMG_UI_BACK01_DATA;
+	MapImgDir[IMG_MAP_SEA01_INDEX - 4000] = IMG_MAP_SEA01_DATA;
 }
 
 VOID setShipDir()
@@ -135,7 +135,7 @@ VOID DrawWorldMap(HDC hdc, HBITMAP hBit)
 	{
 		for (j = 0; j < 64; j++)
 		{
-			DrawBitmap(hdc,i*64,j*64,64,64,MAP_IMG_SEA01_INDEX,hBit);
+			DrawBitmap(hdc,i*64,j*64,64,64, IMG_MAP_SEA01_INDEX,hBit);
 		}
 	}
 }
@@ -214,7 +214,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, UI_IMG_BACK01_INDEX, *MyBitmapUI);
+			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, IMG_UI_BACK01_INDEX, *MyBitmapUI);
 
 			//클리핑 영역
 			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);

@@ -10,17 +10,16 @@ typedef struct
 
 //Ship
 
-
 //Weapon
 
 
 //UI
-#define UI_IMG_BACK01_INDEX 3000
-#define UI_IMG_BACK01_DATA {177,1,126,126}
+#define IMG_UI_BACK01_INDEX 3000
+#define IMG_UI_BACK01_DATA {177,1,126,126}
 
 //Map
-#define MAP_IMG_SEA01_INDEX 4000
-#define MAP_IMG_SEA01_DATA {1,1,64,64}
+#define IMG_MAP_SEA01_INDEX 4000
+#define IMG_MAP_SEA01_DATA {1,1,64,64}
 
 extern ImgData ShipImgDir[128];
 extern ImgData WeaponImgDir[128];
