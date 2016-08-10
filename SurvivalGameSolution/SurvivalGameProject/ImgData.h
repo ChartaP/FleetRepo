@@ -9,8 +9,8 @@ typedef struct
 }ImgData;
 
 //Ship
-#define IMG_UI_TEST01_INDEX 1000
-#define IMG_UI_TEST02_DATA {1,1,22,166}
+#define IMG_SHIP_TEST01_INDEX 1000
+#define IMG_SHIP_TEST02_DATA {1,1,22,166}
 
 //Weapon
 

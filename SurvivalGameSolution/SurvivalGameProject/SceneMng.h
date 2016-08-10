@@ -12,5 +12,5 @@ public:
 	VOID ChangeScene(TCHAR*);
 	TCHAR* GetCurrentScene();
 	VOID Update();
-	VOID ScenePaint(HDC, HBITMAP);
+	VOID ScenePaint(HDC, HDC, HRGN*, HBITMAP, HBITMAP, HBITMAP, HBITMAP);
 };

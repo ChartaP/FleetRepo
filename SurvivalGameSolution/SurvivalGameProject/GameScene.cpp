@@ -10,6 +10,7 @@ GameScene::GameScene()
 VOID GameScene::Enter()
 {
 	MyFleet = new FleetClass(&(myGameMng->myFlagShipData));
+	MyFleet->setFleetPostion(800,400);
 }
 
 VOID GameScene::Update()
@@ -22,7 +23,15 @@ VOID GameScene::Exit()
 
 }
 
-VOID GameScene::ScenePaint(HDC hdc,  HBITMAP hBit)
+VOID GameScene::ScenePaint(HDC hMainDc, HDC hdc, HRGN *hRgn ,  HBITMAP hShipBit, HBITMAP hWeaponBit, HBITMAP hUIBit, HBITMAP hMapBit)
 {
-	MyFleet->FleetPaint(hdc, hBit);
+	DrawBitmap(hdc, crt.left, crt.top, crt.right, crt.bottom, IMG_UI_BACK01_INDEX, hUIBit);
+	
+	//클리핑 영역
+	*hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
+	SelectClipRgn(hMainDc, *hRgn);
+	//월드맵
+	DrawWorldMap(hdc, hMapBit);
+
+	MyFleet->FleetPaint(hdc, hShipBit);
 }

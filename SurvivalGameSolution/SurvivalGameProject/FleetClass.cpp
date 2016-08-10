@@ -9,6 +9,8 @@ FleetClass::FleetClass(ShipData* flagShipData)
 	childShip[0]->setShip(flagShipData);
 
 	flagShip = childShip[0];
+
+	setChildPostion();
 }
 
 ShipClass* FleetClass::getFlagShip()//기함 반환
@@ -33,7 +35,8 @@ VOID FleetClass::addChildShip(ShipData*)
 
 VOID FleetClass::setFleetPostion(INT x,INT y)
 {
-
+	xPos = x;
+	yPos = y;
 }
 
 VOID FleetClass::setChildPostion()
@@ -75,6 +78,6 @@ VOID FleetClass::FleetPaint(HDC hdc, HBITMAP hBit)
 	INT i;
 	for (i=0;i<fleetScale;i++)
 	{
-
+		childShip[i]->ShipPaint(hdc, hBit);
 	}
 }

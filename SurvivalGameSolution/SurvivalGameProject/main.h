@@ -33,3 +33,5 @@ VOID DrawBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
 VOID DrawWorldMap(HDC, HBITMAP);
 
 extern GameMng* myGameMng;
+extern RECT crt;
+extern RECT GameScreen; //월드맵 클립영역

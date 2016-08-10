@@ -40,7 +40,7 @@ VOID SceneMng::Update()
 	}
 }
 
-VOID SceneMng::ScenePaint(HDC hdc, HBITMAP hBit)
+VOID SceneMng::ScenePaint(HDC hMainDc, HDC hdc, HRGN *hRgn, HBITMAP hShipBit, HBITMAP hWeaponBit, HBITMAP hUIBit, HBITMAP hMapBit)
 {
-	curScene->ScenePaint(hdc, hBit);
+	curScene->ScenePaint( hMainDc, hdc, hRgn, hShipBit, hWeaponBit, hUIBit, hMapBit);
 }

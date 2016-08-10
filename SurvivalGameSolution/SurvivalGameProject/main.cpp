@@ -9,6 +9,7 @@ LPCTSTR lpszClass = TEXT("SurvivalGame");
 GameMng* myGameMng = NULL;
 SceneMng* mySceneMng = NULL;
 RECT crt;
+RECT GameScreen; //월드맵 클립영역
 
 ShipData ShipDataDir[128];
 
@@ -59,6 +60,7 @@ VOID setImgDir()
 	memset(UIImgDir, NULL, sizeof(ImgData) * 128);
 	memset(MapImgDir, NULL, sizeof(ImgData) * 128);
 
+	ShipImgDir[IMG_SHIP_TEST01_INDEX - 1000] = IMG_SHIP_TEST02_DATA;
 	UIImgDir[IMG_UI_BACK01_INDEX - 3000] = IMG_UI_BACK01_DATA;
 	MapImgDir[IMG_MAP_SEA01_INDEX - 4000] = IMG_MAP_SEA01_DATA;
 }
@@ -69,7 +71,7 @@ VOID setShipDir()
 	ShipDataDir[SHIP_TEST_TEST_INDEX] = SHIP_TEST_TEST_DATA;
 }
 
-HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
+HBITMAP LoadBitmap(INT num) //비트맵 불러오기
 {
 	static HBITMAP shipBmp ;
 	static HBITMAP weaponBmp ;
@@ -80,16 +82,16 @@ HBITMAP* LoadBitmap(INT num) //비트맵 불러오기
 	{
 	case 1:
 		shipBmp = (HBITMAP)LoadImage(NULL, TEXT("ShipImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		return &shipBmp;
+		return shipBmp;
 	case 2:
 		weaponBmp = (HBITMAP)LoadImage(NULL, TEXT("WeaponImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		return &weaponBmp;
+		return weaponBmp;
 	case 3:
 		UIBmp = (HBITMAP)LoadImage(NULL, TEXT("UI.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		return&UIBmp;
+		return UIBmp;
 	case 4:
 		mapBmp = (HBITMAP)LoadImage(NULL, TEXT("MapImg.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-		return &mapBmp;
+		return mapBmp;
 	}
 	return NULL;
 }
@@ -161,12 +163,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	static HBITMAP backBitmap = NULL;//도화지 비트맵
 	HBITMAP hOldBitmap;//임시 비트맵
 	PAINTSTRUCT ps;
-	static HBITMAP* MyBitmapShip; //캐릭터 이미지 모아둔 비트맵
-	static HBITMAP* MyBitmapWeapon; //캐릭터 이미지 모아둔 비트맵
-	static HBITMAP* MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
-	static HBITMAP* MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP MyBitmapShip; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP MyBitmapWeapon; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP MyBitmapMap; //캐릭터 이미지 모아둔 비트맵
+	static HBITMAP MyBitmapUI; //캐릭터 이미지 모아둔 비트맵
 	HRGN hRgn;
-	static RECT GameScreen; //월드맵 클립영역
 
 	switch (iMessage)
 	{
@@ -214,16 +215,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			DrawBitmap(backMemDC, crt.left, crt.top, crt.right, crt.bottom, IMG_UI_BACK01_INDEX, *MyBitmapUI);
-
-			//클리핑 영역
-			hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
-			SelectClipRgn(backMemDC, hRgn);
-			//월드맵
-			DrawWorldMap(backMemDC, *MyBitmapMap);
-			//오브젝트
-			
-
+			mySceneMng->ScenePaint(hdc,backMemDC, &hRgn, MyBitmapShip, MyBitmapWeapon, MyBitmapUI, MyBitmapMap);
 		}
 		//그리는 곳 끝
 
@@ -237,10 +229,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		return 0;
 	case WM_DESTROY:
 		KillTimer(hWnd,1);
-		DeleteObject(*MyBitmapShip);
-		DeleteObject(*MyBitmapWeapon);
-		DeleteObject(*MyBitmapMap);
-		DeleteObject(*MyBitmapUI);
+		DeleteObject(MyBitmapShip);
+		DeleteObject(MyBitmapWeapon);
+		DeleteObject(MyBitmapMap);
+		DeleteObject(MyBitmapUI);
 		PostQuitMessage(0);
 		return 0;
 	}
