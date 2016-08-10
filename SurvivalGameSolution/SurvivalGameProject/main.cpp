@@ -221,6 +221,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 			SelectClipRgn(backMemDC, hRgn);
 			//월드맵
 			DrawWorldMap(backMemDC, *MyBitmapMap);
+			//오브젝트
+			
 
 		}
 		//그리는 곳 끝

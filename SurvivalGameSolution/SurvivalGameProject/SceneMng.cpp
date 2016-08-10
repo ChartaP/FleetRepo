@@ -39,3 +39,8 @@ VOID SceneMng::Update()
 		curScene->Update();
 	}
 }
+
+VOID SceneMng::ScenePaint(HDC hdc, HBITMAP hBit)
+{
+	curScene->ScenePaint(hdc, hBit);
+}

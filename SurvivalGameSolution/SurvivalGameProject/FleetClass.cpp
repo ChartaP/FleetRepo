@@ -70,7 +70,11 @@ VOID FleetClass::Update()//함대 상태 업데이트
 
 }
 
-VOID FleetClass::FleetDraw(HDC hdc, HBITMAP hBit)
+VOID FleetClass::FleetPaint(HDC hdc, HBITMAP hBit)
 {
+	INT i;
+	for (i=0;i<fleetScale;i++)
+	{
 
+	}
 }

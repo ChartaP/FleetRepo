@@ -29,5 +29,5 @@ public:
 
 	VOID Update();
 
-	VOID FleetDraw(HDC, HBITMAP);
+	VOID FleetPaint(HDC, HBITMAP);
 };

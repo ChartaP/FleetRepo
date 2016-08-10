@@ -14,10 +14,15 @@ VOID GameScene::Enter()
 
 VOID GameScene::Update()
 {
-
+	MyFleet->Update();
 }
 
 VOID GameScene::Exit()
 {
 
+}
+
+VOID GameScene::ScenePaint(HDC hdc,  HBITMAP hBit)
+{
+	MyFleet->FleetPaint(hdc, hBit);
 }

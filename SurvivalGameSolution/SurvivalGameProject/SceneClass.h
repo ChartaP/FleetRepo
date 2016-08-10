@@ -10,6 +10,7 @@ public:
 	virtual VOID Enter() = 0;
 	virtual VOID Update() = 0;
 	virtual VOID Exit() = 0;
+	virtual VOID ScenePaint(HDC, HBITMAP) = 0;
 
 protected:
 

@@ -32,3 +32,8 @@ VOID ShipClass::Update()
 {
 
 }
+
+VOID ShipClass::ShipPaint(HDC hdc, HBITMAP hBit)
+{
+
+}
