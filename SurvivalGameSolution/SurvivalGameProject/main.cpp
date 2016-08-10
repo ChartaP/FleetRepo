@@ -122,7 +122,7 @@ VOID DrawBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX,INT ScaleY,INT ImgNum, H
 
 	GetObject(hBit, sizeof(BITMAP), &bit);
 	
-	TransparentBlt(hdc, PosX, PosY, ScaleX, ScaleY, MemDC, tempData.xPos, tempData.yPos, tempData.xScale, tempData.yScale, RGB(255, 0, 255));
+	TransparentBlt(hdc, PosX, PosY, ScaleX, ScaleY, MemDC, tempData.xPos, tempData.yPos, tempData.xScale, tempData.yScale, ALPHA);
 
 	SelectObject(MemDC, OldBitmap);
 	DeleteDC(MemDC);

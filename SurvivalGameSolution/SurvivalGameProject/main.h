@@ -24,6 +24,9 @@
 
 //#include "ProjectileClass.h"
 
+#define ALPHA RGB(255, 0, 255)
+#define PLAYERCOLOR RGB(255, 255, 0)
+
 HBITMAP* LoadBitmap(TCHAR*);
 VOID setImgDir();
 VOID DrawBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
