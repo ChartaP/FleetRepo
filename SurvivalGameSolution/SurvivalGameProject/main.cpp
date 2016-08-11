@@ -20,6 +20,7 @@ ImgData MapImgDir[128];
 
 INT w_xPos=0;
 INT w_yPos=0;
+INT Magn = 1;
 
 INT APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, INT nCmdShow)
 {

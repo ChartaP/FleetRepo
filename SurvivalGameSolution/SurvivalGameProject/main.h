@@ -36,3 +36,4 @@ extern RECT crt;
 extern RECT GameScreen; //월드맵 클립영역
 extern INT w_xPos;
 extern INT w_yPos;
+extern INT Magn;
