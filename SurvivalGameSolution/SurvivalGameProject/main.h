@@ -5,6 +5,8 @@
 
 #include <list>
 
+#include "Bitmap.h"
+
 #include "ImgData.h"
 #include "ShipData.h"
 
@@ -20,7 +22,6 @@
 #include "GameScene.h"
 #include "SceneMng.h"
 
-#include "Bitmap.h"
 //Projectile Header
 
 //#include "ProjectileClass.h"
