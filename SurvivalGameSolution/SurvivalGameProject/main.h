@@ -29,7 +29,8 @@
 
 HBITMAP* LoadBitmap(TCHAR*);
 VOID setImgDir();
-VOID DrawBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
+VOID DrawLocalBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
+VOID DrawWorldBitmap(HDC, INT, INT, INT, INT, INT, HBITMAP);
 VOID DrawWorldMap(HDC, HBITMAP);
 
 extern GameMng* myGameMng;

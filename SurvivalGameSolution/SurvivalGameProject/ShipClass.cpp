@@ -35,5 +35,5 @@ VOID ShipClass::Update()
 
 VOID ShipClass::ShipPaint(HDC hdc, HBITMAP hBit)
 {
-	DrawBitmap(hdc, xPos, yPos, xScale, yScale, IMG_SHIP_TEST01_INDEX, hBit);
+	DrawWorldBitmap(hdc, xPos, yPos, xScale, yScale, IMG_SHIP_TEST01_INDEX, hBit);
 }

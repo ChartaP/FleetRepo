@@ -25,7 +25,7 @@ VOID GameScene::Exit()
 
 VOID GameScene::ScenePaint(HDC hdc, HRGN *hRgn ,  HBITMAP hShipBit, HBITMAP hWeaponBit, HBITMAP hUIBit, HBITMAP hMapBit)
 {
-	DrawBitmap(hdc, crt.left, crt.top, crt.right, crt.bottom, IMG_UI_BACK01_INDEX, hUIBit);
+	DrawLocalBitmap(hdc, crt.left, crt.top, crt.right, crt.bottom, IMG_UI_BACK01_INDEX, hUIBit);
 	
 	//클리핑 영역
 	*hRgn = CreateEllipticRgn(GameScreen.left, GameScreen.top, GameScreen.right, GameScreen.bottom);
