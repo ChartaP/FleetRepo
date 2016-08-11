@@ -70,7 +70,8 @@ VOID FleetClass::moveToPath()
 
 VOID FleetClass::Update()//함대 상태 업데이트
 {
-
+	moveToPath();
+	setChildPostion();
 }
 
 VOID FleetClass::FleetPaint(HDC hdc, HBITMAP hBit)
