@@ -87,7 +87,7 @@ VOID DrawWorldBitmap(HDC hdc, INT PosX, INT PosY, INT ScaleX, INT ScaleY, INT Im
 
 	GetObject(hBit, sizeof(BITMAP), &bit);
 
-	TransparentBlt(hdc, PosX + w_xPos, PosY + w_yPos, ScaleX, ScaleY, MemDC, tempData.xPos, tempData.yPos, tempData.xScale, tempData.yScale, ALPHA);
+	TransparentBlt(hdc, (PosX + w_xPos)/Magn, (PosY + w_yPos)/Magn, ScaleX/Magn, ScaleY/Magn, MemDC, tempData.xPos, tempData.yPos, tempData.xScale, tempData.yScale, ALPHA);
 
 	SelectObject(MemDC, OldBitmap);
 	DeleteDC(MemDC);

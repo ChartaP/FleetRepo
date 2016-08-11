@@ -144,6 +144,32 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		GameScreen.right = (crt.right / 2) + ((crt.bottom / 2) - 32);
 
 		return 0;
+	case WM_KEYDOWN:
+		switch (wParam)
+		{
+		case VK_UP:
+			w_yPos += 8;
+			break;
+		case VK_DOWN:
+			w_yPos -= 8;
+			break;
+		case VK_LEFT:
+			w_xPos += 8;
+			break;
+		case VK_RIGHT:
+			w_xPos -= 8;
+			break;
+		case VK_OEM_PLUS:
+			if(Magn!=1)
+				Magn /= 2;
+			break;
+		case VK_OEM_MINUS:
+			Magn *= 2;
+			break;
+		}
+		return 0;
+	case WM_KEYUP:
+		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
 
