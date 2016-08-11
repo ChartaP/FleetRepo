@@ -72,6 +72,10 @@ VOID FleetClass::Update()//함대 상태 업데이트
 {
 	moveToPath();
 	setChildPostion();
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		FocusCameraPos(flagShip->getXPosition(),flagShip->getYPosition());
+	}
 }
 
 VOID FleetClass::FleetPaint(HDC hdc, HBITMAP hBit)

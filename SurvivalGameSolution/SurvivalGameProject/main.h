@@ -30,6 +30,7 @@
 #define PLAYERCOLOR RGB(255, 255, 0)
 
 VOID DrawWorldMap(HDC, HBITMAP);
+VOID FocusCameraPos(INT, INT);
 
 extern GameMng* myGameMng;
 extern RECT crt;

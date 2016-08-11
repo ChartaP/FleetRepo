@@ -22,6 +22,8 @@ public:
 	ShipClass();
 	VOID setShip(ShipData*);
 	VOID setPosition(INT,INT);
+	INT getXPosition();
+	INT getYPosition();
 	VOID Update();
 	VOID ShipPaint(HDC, HBITMAP);
 };

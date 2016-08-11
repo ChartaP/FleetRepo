@@ -83,6 +83,17 @@ VOID DrawWorldMap(HDC hdc, HBITMAP hBit)
 	}
 }
 
+VOID FocusCameraPos(INT f_xPos , INT f_yPos)
+{
+	INT xPos;
+	INT yPos;
+	xPos = f_xPos - (crt.right / 2)*Magn;
+	yPos = f_yPos - (crt.bottom / 2)*Magn;
+
+	w_xPos = -1*xPos;
+	w_yPos = -1*yPos;
+}
+
 VOID CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 {
 	HDC hdc;
@@ -148,7 +159,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case VK_UP:
-			w_yPos += 8*Magn;
+			w_yPos += 8 * Magn;
 			break;
 		case VK_DOWN:
 			w_yPos -= 8 * Magn;
