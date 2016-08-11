@@ -215,7 +215,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		//그리는 곳 시작
 		{
-			mySceneMng->ScenePaint(hdc,backMemDC, &hRgn, MyBitmapShip, MyBitmapWeapon, MyBitmapUI, MyBitmapMap);
+			mySceneMng->ScenePaint(backMemDC, &hRgn, MyBitmapShip, MyBitmapWeapon, MyBitmapUI, MyBitmapMap);
 		}
 		//그리는 곳 끝
 

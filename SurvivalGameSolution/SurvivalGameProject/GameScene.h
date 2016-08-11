@@ -8,7 +8,7 @@ public :
 	VOID Enter();
 	VOID Update();
 	VOID Exit();
-	VOID ScenePaint(HDC, HDC, HRGN*, HBITMAP, HBITMAP, HBITMAP, HBITMAP);
+	VOID ScenePaint(HDC, HRGN*, HBITMAP, HBITMAP, HBITMAP, HBITMAP);
 protected:
 
 private:
