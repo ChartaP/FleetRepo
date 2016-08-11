@@ -148,16 +148,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case VK_UP:
-			w_yPos += 8;
+			w_yPos += 8*Magn;
 			break;
 		case VK_DOWN:
-			w_yPos -= 8;
+			w_yPos -= 8 * Magn;
 			break;
 		case VK_LEFT:
-			w_xPos += 8;
+			w_xPos += 8 * Magn;
 			break;
 		case VK_RIGHT:
-			w_xPos -= 8;
+			w_xPos -= 8 * Magn;
 			break;
 		case VK_OEM_PLUS:
 			if(Magn!=1)
