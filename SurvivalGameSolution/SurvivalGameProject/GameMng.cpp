@@ -2,5 +2,4 @@
 
 GameMng::GameMng()
 {
-	
 }

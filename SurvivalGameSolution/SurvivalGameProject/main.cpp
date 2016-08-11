@@ -180,6 +180,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 		myGameMng = new GameMng();
 
+		setShipDir();
 		myGameMng->myFlagShipData = ShipDataDir[SHIP_TEST_TEST_INDEX];
 
 		mySceneMng = new SceneMng();
@@ -189,8 +190,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		MyBitmapWeapon = LoadBitmap(2);
 		MyBitmapUI = LoadBitmap(3);
 		MyBitmapMap = LoadBitmap(4);
-
-		VOID setShipDir();
 
 		mySceneMng->ChangeScene(TEXT("GameScene"));
 

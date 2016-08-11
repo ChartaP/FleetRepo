@@ -10,7 +10,7 @@ GameScene::GameScene()
 VOID GameScene::Enter()
 {
 	MyFleet = new FleetClass(&(myGameMng->myFlagShipData));
-	MyFleet->setFleetPostion(800,400);
+	MyFleet->setFleetPostion(600,300);
 }
 
 VOID GameScene::Update()
